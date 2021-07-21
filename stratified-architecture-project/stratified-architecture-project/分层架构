@@ -1,0 +1,4 @@
+一，先写entity层
+二，在写mapper层
+三，接着写mapper.xml文件
+四，最后写controller层
