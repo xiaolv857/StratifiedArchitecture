@@ -1,50 +1,53 @@
-package com.xiaolv.stratifiedarchitectureproject.mybatis.mapper.book;
+package com.xiaolv.stratifiedarchitectureproject.mybatis.service;
 
 
+import com.xiaolv.stratifiedarchitectureproject.mybatis.constants.ResultDTO;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO;
-import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
 
 /**
  * @author heji-01
  */
-@Mapper
-public interface BookClassMapper {
+
+public interface BookClassService {
+
     /**
      * 111
      * @param name
      * @return
      */
-    List<BookClassDTO>  findListByName(String name);
+
+    ResultDTO findListByName(String name);
+
 
     /**
      * 222
      * @param id
      * @return
      */
-    BookClassDTO findById(int id);
+
+
+    ResultDTO findById(int id);
 
     /**
      * 333
      * @param entity
      * @return
      */
-    int insert(BookClassDTO entity);
+    ResultDTO insert(BookClassDTO entity);
 
     /**
      * 444
      * @param entity
      * @return
      */
-    int update(BookClassDTO entity);
+
+    ResultDTO update(BookClassDTO entity);
 
     /**
      * 555
      * @param id
      * @return
      */
-    int delete(int id);
 
-
+    ResultDTO delete(int id);
 }

@@ -1,0 +1,8 @@
+先写entity层，
+再写mapper层，
+接着写mapper.xml层
+最后写controller层
+
+
+调用逻辑
+controller → service → dao → mapper

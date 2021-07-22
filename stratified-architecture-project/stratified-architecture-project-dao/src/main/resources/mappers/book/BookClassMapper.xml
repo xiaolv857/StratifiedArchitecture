@@ -3,26 +3,26 @@
 <mapper namespace="com.xiaolv.stratifiedarchitectureproject.mybatis.mapper.book.BookClassMapper">
 
     <select id="findListByName" resultType="com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO">
-        SELECT * FROM tb_book
+        SELECT * FROM book_class where name like #{name}
     </select>
     <select id="findById" resultType="com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO">
-
-
-    </select>
-
-    <select id="insert" resultType="com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO">
-
+        SELECT * FROM book_class where id =  #{id}
 
     </select>
 
-    <select id="update" resultType="com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO">
+    <insert id="insert">
+        INSERT INTO book_class(name , validFlag) values (#{name}, #{validFlag})
 
+    </insert>
 
-    </select>
+    <update id="update">
+        update book_class set name = #{name} where id =  #{id}
 
-    <select id="delate" resultType="com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO">
+    </update>
 
+    <delete id="delete">
+        delete from book_class where id =  #{id}
 
-    </select>
+    </delete>
 
 </mapper>

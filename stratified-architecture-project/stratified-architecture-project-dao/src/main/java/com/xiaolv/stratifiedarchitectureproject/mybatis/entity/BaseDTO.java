@@ -7,6 +7,7 @@ import lombok.Data;
  * 实体类父类
  * @author heji-01
  */
+@Data
 public class BaseDTO {
 
     private int id;
