@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @author heji-01
- */
 @RestController
 @RequestMapping("/book")
 public class BookController {
@@ -24,6 +21,6 @@ public class BookController {
     @RequestMapping("/findAll")
     public List<BookDTO> findAll() {
         return bookMapper.findAll();
-
     }
+
 }

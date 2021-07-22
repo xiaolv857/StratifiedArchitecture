@@ -16,16 +16,10 @@
  */
 package com.xiaolv.stratifiedarchitectureproject.mybatis.entity;
 
-import lombok.Data;
-
 import java.io.Serializable;
-/**
- * @author heji-01
- */
-@Data
+
 public class MybatisDemoUser implements Serializable {
 
-    private static final long serialVersionUID = -571426084392532824L;
     /**
      * 编号
      */
