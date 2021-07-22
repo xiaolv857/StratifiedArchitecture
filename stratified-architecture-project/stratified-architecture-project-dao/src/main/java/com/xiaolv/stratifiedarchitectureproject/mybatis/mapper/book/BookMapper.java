@@ -1,11 +1,14 @@
-package com.xiaolv.stratifiedarchitectureproject.mybatis.mapper;
+package com.xiaolv.stratifiedarchitectureproject.mybatis.mapper.book;
 
 
-import com.xiaolv.stratifiedarchitectureproject.mybatis.entity.BookDTO;
+import com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+/**
+ * @author heji-01
+ */
 @Mapper
 public interface BookMapper {
 
