@@ -3,6 +3,8 @@ package com.xiaolv.stratifiedarchitectureproject.mybatis.entity;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.enums.ValidFlagEnum;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 /**
  * 实体类父类
  * @author heji-01
@@ -16,9 +18,9 @@ public class BaseDTO {
 
     private String temp2;
 
-    private Data createDate;
+    private Timestamp createDate;
 
-    private Data updateDate;
+    private Timestamp updateDate;
 
     private ValidFlagEnum validFlag;
 }

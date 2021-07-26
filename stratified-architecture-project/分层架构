@@ -6,3 +6,10 @@
 
 调用逻辑
 controller → service → dao → mapper
+
+start ： 启动类和配置文件
+api ： 暂时未用到 （生成接口类）
+dao ： 实体类和工具类，接口类
+manager ： 暂时未用到
+service ： 暂时未用到 （生成service服务类和service接口）
+controller ： 生成控制类，web对外接口

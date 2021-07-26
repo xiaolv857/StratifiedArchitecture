@@ -4,9 +4,13 @@ import com.xiaolv.stratifiedarchitectureproject.mybatis.constants.ResultDTO;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.enums.HttpCode;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.service.BookClassService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 /**
  * @author heji-01
@@ -14,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/bookClass")
 public class BookClassController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private BookClassService bookClassService;
@@ -28,6 +34,7 @@ public class BookClassController {
         try {
             return bookClassService.findListByName(name);
         }catch (Exception e) {
+            logger.error("系统异常：" + e);
             return new ResultDTO(HttpCode.EXCEPTION.getCode(), "系统异常");
         }
     }
@@ -43,6 +50,7 @@ public class BookClassController {
            return bookClassService.findById(id);
 
        }catch (Exception e){
+           logger.error("系统异常：" + e);
            return new ResultDTO(HttpCode.EXCEPTION.getCode(), "系统异常");
        }
 
@@ -59,6 +67,7 @@ public class BookClassController {
         try {
             return bookClassService.insert(bookClassDTO);
         }catch (Exception e) {
+            logger.error("系统异常：" + e);
             return new ResultDTO(HttpCode.EXCEPTION.getCode(), "系统异常");
         }
     }
@@ -73,6 +82,7 @@ public class BookClassController {
         try {
             return bookClassService.update(bookClassDTO);
         }catch (Exception e) {
+            logger.error("系统异常：" + e);
             return new ResultDTO(HttpCode.EXCEPTION.getCode(), "系统异常");
         }
     }
@@ -88,6 +98,7 @@ public class BookClassController {
         try {
             return bookClassService.delete(id);
         }catch (Exception e) {
+            logger.error("系统异常：" + e);
             return new ResultDTO(HttpCode.EXCEPTION.getCode(), "系统异常");
         }
     }

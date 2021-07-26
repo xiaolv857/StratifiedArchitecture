@@ -5,6 +5,8 @@ import com.xiaolv.stratifiedarchitectureproject.mybatis.entity.book.BookClassDTO
 import com.xiaolv.stratifiedarchitectureproject.mybatis.enums.HttpCode;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.mapper.book.BookClassMapper;
 import com.xiaolv.stratifiedarchitectureproject.mybatis.service.BookClassService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -18,17 +20,23 @@ import java.util.List;
 @Service
 public class BookClassServiceImpl implements BookClassService {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
     @Autowired
     private BookClassMapper bookClassMapper;
 
     @Override
     public ResultDTO findListByName(String name) {
+        logger.info("入参：" + name);
         //非空判断
         if (StringUtils.isEmpty(name)){
             return new ResultDTO(HttpCode.FAIL.getCode(), "搜索关键字不能为空");
         }
         //业务查找
         List<BookClassDTO> list = bookClassMapper.findListByName(name);
+        logger.info("出参：" + list);
+
         if (CollectionUtils.isEmpty(list)){
             return new ResultDTO(HttpCode.FAIL.getCode(),"暂无对应分类数据");
         }
@@ -38,6 +46,7 @@ public class BookClassServiceImpl implements BookClassService {
 
     @Override
     public ResultDTO findById(int id) {
+        logger.info("入参：" + id);
         //非空判断
         if (0 == id){
             return new ResultDTO(HttpCode.FAIL.getCode(), "数据id不能为空");
@@ -48,16 +57,19 @@ public class BookClassServiceImpl implements BookClassService {
         if (null == bookClassDTO){
             return new ResultDTO(HttpCode.FAIL.getCode(), "暂无对应分类数据");
         }
+        logger.info("出参：" + bookClassDTO);
         return new ResultDTO(HttpCode.SUCCESS.getCode(), "查找成功",bookClassDTO);
     }
 
     @Override
     public ResultDTO insert(BookClassDTO entity) {
+        logger.info("入参：" + entity);
         //非空判断
         if (StringUtils.isEmpty(entity.getName())){
             return new ResultDTO(HttpCode.FAIL.getCode(), "分类名称不能为空");
         }
         int influenceNumber = bookClassMapper.insert(entity);
+
         if (influenceNumber <= 0){
             //新增失败
             return new ResultDTO(HttpCode.FAIL.getCode(), "新增失败");
@@ -67,6 +79,7 @@ public class BookClassServiceImpl implements BookClassService {
 
     @Override
     public ResultDTO update(BookClassDTO entity) {
+        logger.info("入参：" + entity);
         //非空判断
         if (StringUtils.isEmpty(entity.getId())){
             return new ResultDTO(HttpCode.FAIL.getCode(), "数据id不能为空");
@@ -82,6 +95,8 @@ public class BookClassServiceImpl implements BookClassService {
 
     @Override
     public ResultDTO delete(int id) {
+        logger.info("入参：" + id);
+
         //非空判断
         if (0 == id){
             return new ResultDTO(HttpCode.FAIL.getCode(), "数据id不能为空");
