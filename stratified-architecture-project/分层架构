@@ -13,3 +13,19 @@ dao ： 实体类和工具类，接口类
 manager ： 暂时未用到
 service ： 暂时未用到 （生成service服务类和service接口）
 controller ： 生成控制类，web对外接口
+
+完整流程 ： 创建数据库表 → 编写bookClassDTO实体类 → 编写bookClassMapper接口 → 编写bookClassService和bookClassServiceImpl文件
+          → 编写bookClassController文件
+
+
+数据类型转换
+int --> Integer  0
+double --> Double 0.0
+long --> Long
+String --> String
+
+
+
+
+
+

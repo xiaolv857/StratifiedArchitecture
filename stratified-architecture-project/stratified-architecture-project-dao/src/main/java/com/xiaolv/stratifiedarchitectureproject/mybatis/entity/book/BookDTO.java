@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 /**
  * 书籍实体类
@@ -23,13 +24,15 @@ public class BookDTO extends BaseDTO implements Serializable {
 
     private BigDecimal bookPrice;
 
+    private int bookCount;
+
     private  String bookPublish;
 
     private  String bookAuthor;
 
     private  String bookImg;
 
-    private  Data publishDate;
+    private Timestamp publishDate;
 
 
 }

@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * 基本返回数据结构
+ * @author heji-01
  */
 
 @Data
@@ -11,7 +12,7 @@ public class ResultDTO {
 
     private String system;
 
-    private int code;
+    private Integer code;
 
     private  String msg;
 
